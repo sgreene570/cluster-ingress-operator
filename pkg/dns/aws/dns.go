@@ -262,9 +262,15 @@ func (m *Provider) change(record *iov1.DNSRecord, zone configv1.DNSZone, action 
 	}
 
 	// Find the target hosted zone of the load balancer attached to the service.
-	targetHostedZoneID, err := m.getLBHostedZone(target)
-	if err != nil {
-		return fmt.Errorf("failed to get hosted zone for load balancer target %q: %v", target, err)
+	// Store the hosted zone ID as a field in the DNSRecord's status.
+	// Use the hosted zone ID from the DNSRecord's status if it's populated.
+	targetHostedZoneID := record.Status.HostedZoneID
+	if targetHostedZoneID == "" {
+		targetHostedZoneID, err := m.getLBHostedZone(target)
+		if err != nil {
+			return fmt.Errorf("failed to get hosted zone for load balancer target %q: %v", target, err)
+		}
+		record.Status.HostedZoneID = targetHostedZoneID
 	}
 
 	// Configure records.

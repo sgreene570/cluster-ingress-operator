@@ -69,6 +69,11 @@ spec:
           description: status is the most recently observed status of the dnsRecord.
           type: object
           properties:
+            hostedZoneID:
+              description: hostedZoneID is the ID of the AWS hosted zone for the DNS
+                record, if applicable. This optional field allows the DNS record to
+                be deleted without the need to perform an AWS hosted zone lookup.
+              type: string
             observedGeneration:
               description: observedGeneration is the most recently observed generation
                 of the DNSRecord.  When the DNSRecord is updated, the controller updates
