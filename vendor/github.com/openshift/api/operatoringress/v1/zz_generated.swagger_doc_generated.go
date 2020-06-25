@@ -45,6 +45,7 @@ var map_DNSRecordStatus = map[string]string{
 	"":                   "DNSRecordStatus is the most recently observed status of each record.",
 	"zones":              "zones are the status of the record in each zone.",
 	"observedGeneration": "observedGeneration is the most recently observed generation of the DNSRecord.  When the DNSRecord is updated, the controller updates the corresponding record in each managed zone.  If an update for a particular zone fails, that failure is recorded in the status condition for the zone so that the controller can determine that it needs to retry the update for that specific zone.",
+	"hostedZoneID":       "hostedZoneID is the ID of the AWS hosted zone for the DNS record, if applicable. This optional field allows the DNS record to be deleted without the need to perform an AWS hosted zone lookup.",
 }
 
 func (DNSRecordStatus) SwaggerDoc() map[string]string {

@@ -40,3 +40,5 @@ require (
 
 // Remove when https://github.com/kubernetes-sigs/controller-tools/pull/424 merges.
 replace sigs.k8s.io/controller-tools => github.com/munnerz/controller-tools v0.1.10-0.20200323145043-a2d268fbf03d
+
+replace github.com/openshift/api => github.com/sgreene570/api v0.0.0-20200625153857-173f0f5bc29d

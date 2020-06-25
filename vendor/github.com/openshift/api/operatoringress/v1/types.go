@@ -65,6 +65,14 @@ type DNSRecordStatus struct {
 	// needs to retry the update for that specific zone.
 	// +optional
 	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
+
+	// hostedZoneID is the ID of the AWS hosted zone for
+	// the DNS record, if applicable. This optional field
+	// allows the DNS record to be deleted without the need
+	// to perform an AWS hosted zone lookup.
+	// +kubebuilder:validation:Optional
+	// +optional
+	HostedZoneID string `json:"hostedZoneID,omitempty"`
 }
 
 // DNSZoneStatus is the status of a record within a specific zone.
