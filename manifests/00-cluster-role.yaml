@@ -136,13 +136,13 @@ rules:
   - create
 
 # Mirrored from assets/router/cluster-role.yaml
+# and expanded for assets/canary/route.yaml
 - apiGroups:
   - route.openshift.io
   resources:
   - routes
   verbs:
-  - list
-  - watch
+  - '*'
 
 # Mirrored from assets/router/cluster-role.yaml
 - apiGroups:
