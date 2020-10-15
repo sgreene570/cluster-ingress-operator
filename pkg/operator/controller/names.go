@@ -156,3 +156,32 @@ func WildcardDNSRecordName(ic *operatorv1.IngressController) types.NamespacedNam
 		Name:      fmt.Sprintf("%s-wildcard", ic.Name),
 	}
 }
+
+func CanaryDeploymentName() types.NamespacedName {
+	return types.NamespacedName{
+		Namespace: "openshift-ingress-canary",
+		Name:      "ingress-canary",
+	}
+}
+
+func CanaryDeploymentPodSelector() *metav1.LabelSelector {
+	return &metav1.LabelSelector{
+		MatchLabels: map[string]string{
+			"app": "ingress-canary",
+		},
+	}
+}
+
+func CanaryServiceName() types.NamespacedName {
+	return types.NamespacedName{
+		Namespace: "openshift-ingress-canary",
+		Name:      "ingress-canary",
+	}
+}
+
+func CanaryRouteName() types.NamespacedName {
+	return types.NamespacedName{
+		Namespace: "openshift-ingress-canary",
+		Name:      "ingress-canary-route",
+	}
+}
