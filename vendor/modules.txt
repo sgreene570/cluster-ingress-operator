@@ -166,6 +166,8 @@ github.com/prometheus/procfs/internal/util
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.5
 github.com/spf13/pflag
+# github.com/tcnksm/go-httpstat v0.2.1-0.20191008022543-e866bb274419
+github.com/tcnksm/go-httpstat
 # go.opencensus.io v0.22.2
 go.opencensus.io
 go.opencensus.io/internal
